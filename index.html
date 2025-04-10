@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Saint du Demain</title>
+</head>
+<body>
+  <h1>Saint de demain</h1>
+  <p id="saint"></p>
+
+  <script>
+    async function getSaint() {
+      const response = await fetch("saints.json");
+      const saints = await response.json();
+
+      const today = new Date();
+      today.setDate(today.getDate() + 1); // demain
+      const month = (today.getMonth() + 1).toString();
+      const day = today.getDate().toString();
+
+      const list = saints[month]?.[day];
+      const saintText = list ? list.join(", ") : "Aucun saint trouvé";
+
+      document.getElementById("saint").innerText = saintText;
+    }
+
+    getSaint();
+  </script>
+</body>
+</html>
