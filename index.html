@@ -3,6 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <title>Saint du Demain</title>
+  
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "116cfb60-14ac-434d-abe1-8c95d2b99e4d",
+    });
+  });
+</script>
+  
 </head>
 <body>
   <h1>Saint de demain</h1>
